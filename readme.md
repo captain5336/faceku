@@ -45,10 +45,13 @@ CREATE TABLE IF NOT EXISTS `face_feature` (
 3) Copy .py files the  project directory,  copy model files into  MyProject/model/
 
 4) install dependencies 
+
+```
 pip install opencv-python
 pip install numpy
 pip install pandas
 pip install dlib
+```
 
 
 ## 3. Examples to use 
