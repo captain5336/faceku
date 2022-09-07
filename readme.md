@@ -1,26 +1,17 @@
-## Brief Introduction
+## 1. Brief Introduction
 - The class FaceModel provides models for face detect, feature encoding, compare
 - The class FaceKu provides methods to establish face database, including add, update, delete face, and load face features of known people stored in databases. 
 
-## Examples to use 
 
-Usage steps 
-- In your .py file,  import FaceKu
-- Create face_db databases in MySql
-  create table face_feature in MySql with the structure 
+
+##  2. Set up running environment
+
+
+
+1) Create project structure, like the below 
+
 ```
-CREATE TABLE IF NOT EXISTS `face_feature` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `feature` blob NOT NULL,
-  `people_id` int(11) DEFAULT NULL,
-  `name` varchar(20) NOT NULL,
-  `photo_path` varchar(300) NOT NULL,
-  PRIMARY KEY (`id`)
-) 
-···
-
-
--- MyProject
+-- MyProject 
     |-- FaceModel.py
     |-- FaceKu.py
     |-- face_demo.py
@@ -30,44 +21,82 @@ CREATE TABLE IF NOT EXISTS `face_feature` (
     |-- image
        |-- train
        |-- face
+```
 
-If you add batches faces from excel, recommand to put raw face images in MyProject/image/train/
-- Copy .py files and model files into your project directory. 
-- Create a sub
+​		If you add batches faces from excel, recommand to put raw face images in MyProject/image/train/
+
+2) Prepare database
+
+Create face_db databases in MySql or use current database., then create table face_feature in MySql with the structure 
+
+```
+CREATE TABLE IF NOT EXISTS `face_feature` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `feature` blob NOT NULL,
+  `people_id` int(11) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
+  `photo_path` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+```
 
 
-### 1）Add face into database and recognize face.  
+
+3) Copy .py files the  project directory,  copy model files into  MyProject/model/
+
+
+
+## 3. Examples to use 
+
+
+
+In your .py file,  import FaceKu,  then use the module referring to examples. 
+
+
+#### 1）Add face into database and recognize face.  
 Refer to following example:
 
-```python
-    from FaceKu import *　
+​    
+
+```
+from FaceKu import *　
     import cv2
     import numpy as np
 
-    fk = FaceKu()
+​    fk = FaceKu()
+
     # 准备测试数据
-    imgx = cv2.imread('image/train/t-1.jpg')
-    width = imgx.shape[1]
-    input_width = 500
-    ratio = input_width/width
-    input_height = int(imgx.shape[0]*ratio)
-    imgx = cv2.resize(imgx, (input_width, input_height), cv2.INTER_LINEAR)
+
+​    imgx = cv2.imread('image/train/t-1.jpg')
+​    width = imgx.shape[1]
+​    input_width = 500
+​    ratio = input_width/width
+​    input_height = int(imgx.shape[0]*ratio)
+​    imgx = cv2.resize(imgx, (input_width, input_height), cv2.INTER_LINEAR)
+
     # 添加人脸
-    res = fk.add_face(imgx, people_info)
-    print("人员添加结果: ", res)
+
+​    res = fk.add_face(imgx, people_info)
+​    print("人员添加结果: ", res)
+
     # 识别人脸
-    res = fk.face_compare(imgx)
-    print("识别结果: ", res)
+
+​    res = fk.face_compare(imgx)
+​    print("识别结果: ", res)
+```
 
 
-### 1) Use FaceKu to recognize face in video streaming 
+
+
+#### 2) Use FaceKu to recognize face in video streaming 
 
 refer to face_demo.py 
 
-## Description for main classes and functions
+## 4. Description for main classes and functions
 
-### 1) Class FaceModel:
+#### 1) Class FaceModel:
 
+```
 NAME
     FaceModel
 
@@ -102,11 +131,13 @@ CLASSES
 
 FILE
     FaceModel.py
+```
 
 
 
-### 2) Class FaceKu:
+#### 2) Class FaceKu:
 
+```
 NAME
     FaceKu
 
@@ -189,6 +220,7 @@ CLASSES
 
 FILE
     FaceKu.py
+```
 
 
 
