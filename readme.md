@@ -2,10 +2,10 @@
 - The class FaceModel provides models for face detect, feature encoding, recognition. 
 - The class FaceKu provides methods to establish face database, including add, update, delete face, and load face features of known people stored in databases. 
 - The application are built on algorithms of dlib face recognition. 
+- It was tested on Windows10, Ubuntu 22.04
 
 
 ##  2. Set up running environment
-
 
 
 1) Create project structure, like the below 
@@ -44,6 +44,11 @@ CREATE TABLE IF NOT EXISTS `face_feature` (
 
 3) Copy .py files the  project directory,  copy model files into  MyProject/model/
 
+4) install dependencies 
+pip install opencv-python
+pip install numpy
+pip install pandas
+pip install dlib
 
 
 ## 3. Examples to use 
