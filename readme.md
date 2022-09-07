@@ -1,7 +1,7 @@
 ## 1. Brief Introduction
-- The class FaceModel provides models for face detect, feature encoding, compare
+- The class FaceModel provides models for face detect, feature encoding, recognition. 
 - The class FaceKu provides methods to establish face database, including add, update, delete face, and load face features of known people stored in databases. 
-
+- The application are built on algorithms of dlib face recognition. 
 
 
 ##  2. Set up running environment
@@ -146,7 +146,6 @@ CLASSES
         FaceKu
     
     class FaceKu(builtins.object)
-     |  ��������Ҫ�ṩ����ע�ᣬɾ�������£�����ʶ��ȹ���
      |  Attributes:
      |      feature_list: type(list)  face features for all valid faces
      |      name_list: type(list)     name labels to feature list  
@@ -179,7 +178,6 @@ CLASSES
      |      delete face from face feature table
      |  
      |  face_compare(self, image)
-     |      ������Ƭ����������Ƚϣ�����ƥ��������
      |  
      |  get_compare_level(self)
      |  
