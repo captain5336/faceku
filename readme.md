@@ -73,7 +73,7 @@ from FaceKu import *　
 
 ​    fk = FaceKu()
 
-    # 准备测试数据
+    # Prepare test data, image including face
 
 ​    imgx = cv2.imread('image/train/t-1.jpg')
 ​    width = imgx.shape[1]
@@ -82,15 +82,15 @@ from FaceKu import *　
 ​    input_height = int(imgx.shape[0]*ratio)
 ​    imgx = cv2.resize(imgx, (input_width, input_height), cv2.INTER_LINEAR)
 
-    # 添加人脸
+    # add face into database
 
 ​    res = fk.add_face(imgx, people_info)
-​    print("人员添加结果: ", res)
+​    print("result is : ", res)
 
-    # 识别人脸
+    # recognize face, return name of recognized person. 
 
 ​    res = fk.face_compare(imgx)
-​    print("识别结果: ", res)
+​    print("recognization result : ", res)
 ```
 
 
